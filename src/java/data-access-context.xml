@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+        
+	<!-- ******************* -->
+	<!-- Hibernate           -->
+	<!-- ******************* -->
+	
+	<bean id="hibernateSessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>de.tr.model.Customer</value>
+				<value>de.tr.model.Rental</value>
+				<value>de.tr.model.Trailer</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="hibernateSessionFactory" />
+	</bean>
+	
+	<!-- ******************* -->
+	<!-- Data Access Objects -->
+	<!-- ******************* -->
+	
+	<bean id="customerDao" class="de.tr.dao.CustomerDao">
+		<property name="sessionFactory" ref="hibernateSessionFactory" />
+	</bean>
+	
+	<bean id="rentalDao" class="de.tr.dao.RentalDao">
+		<property name="sessionFactory" ref="hibernateSessionFactory" />
+	</bean>
+	
+	<bean id="trailerDao" class="de.tr.dao.TrailerDao">
+		<property name="sessionFactory" ref="hibernateSessionFactory" />
+	</bean>
+	
+	<!-- ******************* -->
+	<!--     Controllers     -->
+	<!-- ******************* -->
+	
+	
+	<bean id="trailerController" class="de.tr.ctrl.TrailerController">
+		<property name="trailerDao" ref="trailerDao" />
+	</bean>
+	
+	<bean id="rentalController" class="de.tr.ctrl.RentalController">
+		<property name="rentalDao" ref="rentalDao" />
+		<property name="trailerDao" ref="trailerDao" />
+		<property name="customerDao" ref="customerDao" />
+	</bean>
+	
+	<bean id="customerController" class="de.tr.ctrl.CustomerController">
+		<property name="customerDao" ref="customerDao" />
+	</bean>
+	
+	<bean id="pdfGeneratorController" class="de.tr.ctrl.PdfGeneratorController">
+		<property name="trailerDao" ref="trailerDao" />
+		<property name="rentalDao" ref="rentalDao" />
+	</bean>
+	
+	<bean id="twitterIntegrateController" class="de.tr.ctrl.TwitterIntegrateController">
+	</bean>
+</beans>

@@ -1,0 +1,166 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	font-size: 1em;
+	font-family: verdana, arial, helvetica, sans-serif;
+	color: #000000;
+}
+
+#container {
+	width: 100%;
+}
+
+#head-image{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	height: 50%;
+	line-height: 15px;
+	float:left;
+}
+
+#header {
+	margin: 0px 0px 0px 0px;
+	padding: 15px 0px 0px 17px;
+	height: 25px;
+	border: 1px solid grey;
+	line-height: 7px;
+	background-color: #ADD8E6;
+	voice-family: "";
+	voice-family: inherit;
+	float: left; 
+	width:100%;
+}
+
+#menu {
+	float: left;
+	width: 200px;
+	padding: 14px;
+	background-color: #ADD8E6;
+	line-height: 17px;
+	border: 1px solid grey;
+	voice-family: "";
+	voice-family: inherit;
+	height: auto;
+	margin-bottom: 5em;
+}
+
+#content {
+	float: left;
+	height: auto;
+	margin-left: 3em;
+	margin-bottom: 5em;
+}
+
+h1 {
+	padding: 5px;
+	font-size: 28px;
+	line-height: 0px;
+	font-weight: 900;
+	color: #000000;
+}
+
+h2 {
+	font: 20px verdana, arial, helvetica, sans-serif;
+	font-weight: bold;
+	margin: 0px 0px 16px 0px;
+	padding: 0px;
+	color: #000000;
+}
+
+ul {
+	list-style-type: none;
+}
+
+li {
+	font: 12px verdana, arial, helvetica, sans-serif;
+	padding: 0px 0px 10px 15px;
+}
+
+p {
+	font: 14px verdana, arial, helvetica, sans-serif;
+	margin: 0px 0px 16px 0px;
+	padding: 0px 0px 10px 0px;
+	color: #000000;
+}
+
+img {
+	border-width: 0px;
+	border-style: none;
+}
+
+table {
+	border: 1px solid grey;
+}
+
+table,td,th {
+	border-collapse: collapse;
+}
+
+td,th {
+	padding: 10px;
+}
+
+input[type="submit"] {
+	border-style: none;
+	padding: 8px;
+	font-soze: 2em;
+	font-weight: bold;
+	border-radius: 5px;
+}
+
+.row1 {
+	background-color: #DDDDDD;
+}
+
+#content>p {
+	margin: 0px;
+}
+
+#content>p+p {
+	text-indent: 30px;
+}
+
+a {
+	color: #000000;
+	text-decoration: none;
+	font-weight: 600;
+	font-family: verdana, arial, helvetica, sans-serif;
+}
+
+a:link {
+	color: #000000;
+}
+
+a:visited {
+	color: #000000;
+}
+
+a:hover {
+	background-color:"";
+}
+
+#footer {
+	clear: left; 
+	padding: 6px 0px 0px 17px;
+	height: 23px;
+	border: 1px solid grey;
+	background-color: #ADD8E6;
+	voice-family: "";
+	voice-family: inherit;
+	text-align: center;
+	font-size: 1em;
+	margin: 50px 0px 10px 0px;
+}
+
+#small{
+	font-size:10px;
+}
+
+.button{
+	color:green;
+	background-color: #ADD8E6;
+	float:right;
+}
